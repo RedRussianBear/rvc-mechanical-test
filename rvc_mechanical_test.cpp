@@ -56,22 +56,24 @@ int main(int argc, char **argv) {
     switch(state){
     case READY:
 
-      // Assign message data
-      msg.header.seq = s;
-      msg.header.stamp = ros::Time::now();
-      msg.header.frame_id = "rvc_test";
+      if(pub_move.getNumSubscribers() > 0) {
+	// Assign message data
+	msg.header.seq = s;
+	msg.header.stamp = ros::Time::now();
+	msg.header.frame_id = "rvc_test";
 
-      msg.name.resize(2);
-      msg.name[0] = "x";
-      msg.name[1] = "y";
+	msg.name.resize(2);
+	msg.name[0] = "x";
+	msg.name[1] = "y";
 
-      msg.position.resize(2);
-      msg.position[0] = x[i % 5];
-      msg.position[1] = y[i % 5];
-      s++;
+	msg.position.resize(2);
+	msg.position[0] = x[i % 5];
+	msg.position[1] = y[i % 5];
+	s++;
 
-      pub_move.publish(msg);
-      state = MOVING;
+	pub_move.publish(msg);
+	state = MOVING;
+      }
       
       break;
     case MOVING:
