@@ -48,6 +48,8 @@ int main(int argc, char **argv) {
   
   sensor_msgs::JointState msg;
 
+  ros::Duration(1.0).sleep();
+  
   // Release flow control to ROS
   while(ros::ok() && i < 151) {
 
