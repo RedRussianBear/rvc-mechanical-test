@@ -1,0 +1,9 @@
+<launch>
+	<node pkg="rvc_ros"
+	      type="rvc_ros_node"
+	      name="rvc_ros_adapter"
+	      required="true"
+	      />
+	
+
+</launch>

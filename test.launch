@@ -1,0 +1,9 @@
+<launch>
+	<node pkg="rvc_mechanical_test"
+	      type="rvc_mechanical_test"
+	      name="rvc_test"
+	      required="true"
+	      />
+	
+
+</launch>
